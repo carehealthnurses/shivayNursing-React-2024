@@ -1,0 +1,138 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #0a0a0a; // Dark gaming theme
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+
+  &.scrolled {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    background-color: #121212; // Slightly darker when scrolled
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+
+    li {
+      position: relative;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out, transform 0.2s ease;
+
+      &:hover {
+        color: #00ffcc;
+        transform: scale(1.1); // Subtle scale effect
+      }
+
+      // Hover pseudo-elements
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #00ffcc, #3b82f6);
+        transform: scaleX(0);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      &::before {
+        top: -5px;
+        transform-origin: left;
+      }
+
+      &::after {
+        bottom: -5px;
+        transform-origin: right;
+      }
+
+      &:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: right;
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: block;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      background: transparent;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .mobile-menu {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #0a0a0a;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+
+      &.open {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      li {
+        padding: 1rem;
+        text-align: center;
+
+        &:hover {
+          color: #3b82f6;
+        }
+      }
+    }
+  }
+
+  .call-now {
+    padding: 0.5rem 1rem;
+    background: #3b82f6;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      background-color: #2563eb;
+      box-shadow: 0 0 15px #2563eb;
+    }
+  }
+}
+

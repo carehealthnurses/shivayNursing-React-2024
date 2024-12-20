@@ -1,0 +1,74 @@
+/* Advanced Animations for Our Services Section */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.group .animate-zoomIn {
+  animation: zoomIn 0.8s ease-out forwards;
+}
+
+.group:hover .animate-zoomIn {
+  animation: zoomIn 0.4s ease-out forwards;
+}
+
+/* Hover effects with more dynamic scaling and color transitions */
+.group:hover {
+  transform: scale(1.1); /* Slight scaling on hover */
+  transition: transform 0.4s ease, box-shadow 0.3s ease; /* Smooth transition */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Larger shadow */
+}
+
+.group:hover .text-sm {
+  color: #ffffff; /* Change text color on hover */
+}
+
+.group .group-hover\:animate-none {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Card content transitions */
+.group {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
+}
+
+/* Customize icon hover */
+.group:hover .text-6xl {
+  transform: scale(1.2); /* Slight increase in size */
+  color: #ffffff; /* Change icon color on hover */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .group {
+    max-width: 100%;
+  }
+
+  .group .text-sm {
+    font-size: 1rem;
+  }
+
+  .group .group-hover\:animate-none {
+    animation: fadeInUp 0.5s ease-out forwards; /* Fade-in effect for mobile */
+  }
+}

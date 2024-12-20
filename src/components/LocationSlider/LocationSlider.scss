@@ -1,0 +1,119 @@
+.slider-container {
+  background: linear-gradient(to bottom, #fffff2, #e0e0ff); // Subtle gradient for depth
+  padding: 40px;
+  text-align: center;
+  color: #1a1a4d;
+
+  .slider-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1717b8; // Bright blue for the title
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+  }
+
+  .swiper {
+    overflow: hidden;
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  // Media Queries for Responsiveness
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+
+    .slider-title {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media screen and (max-width: 772px) and (min-width: 350px) {
+    padding: 20px;
+
+    .slider-title {
+      font-size: 1.6rem;
+    }
+
+    .swiper-slide {
+      flex-direction: column; // Stack items for narrow viewports
+    }
+  }
+}
+
+.location-card {
+  background: #ffffff;
+  color: #1a1a4d; // Dark blue for text
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 250px; // Enforces consistent card height
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .location-address {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  .location-website {
+    font-size: 0.9rem;
+    color: #2a2a72; // Dark blue for website links
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #1a1a4d; // Darker blue on hover
+    }
+
+    .icon {
+      margin-right: 5px;
+    }
+  }
+
+  .location-phones {
+    .phone {
+      font-size: 0.9rem;
+      margin: 5px 0;
+      display: flex;
+      align-items: center;
+
+      .icon {
+        color: #2a2a72; // Dark blue for phone icons
+        margin-right: 8px;
+      }
+    }
+  }
+
+  // Adjustments for Mobile Devices
+  @media screen and (max-width: 768px) {
+    padding: 10px;
+    height: auto; // Let cards adjust height on smaller screens
+    .location-address, .location-website, .phone {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media screen and (max-width: 772px) and (min-width: 350px) {
+    padding: 15px;
+    .location-address, .location-website, .phone {
+      font-size: 0.85rem;
+    }
+  }
+}
